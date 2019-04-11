@@ -7,8 +7,8 @@ function inputAPI() {
             return res.data
         }
 
-        async function saveNewInput(title, content, id) {
-            const res = await axios.post('http://localhost:3000/', { title, content, id })
+        async function saveNewInput(newInput) {
+            const res = await axios.post('http://localhost:3000/', { newInput })
             return res.data
         }
 
