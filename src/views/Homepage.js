@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
 import SearchInput from '../components/SearchInput'
-
 import inputAPI from '../API/inputAPI'
 
 export default function Homepage() {
@@ -13,38 +11,36 @@ export default function Homepage() {
             setInputHistory(res)
         }
         return getInputHistory()
-    }, []); 
+    }, []);
 
     async function onSubmitInput(e) {
-        if(e.length < 3) return
+        if (e.length < 3) return
         let updatedInputList = await inputAPI.saveNewInput(e)
         setInputHistory(updatedInputList)
     }
 
     function renderTable() {
-        if(!inputHistory) return
+        if (!inputHistory) return
         return inputHistory.map(input => <tr style={styles.tableRow} key={input.date}>
-                <td style={styles.tableItem}>{input.input}</td>
-                <td style={styles.tableItem}>{input.result}</td>
-            </tr>
+            <td style={styles.tableItem}>{input.input}</td>
+            <td style={styles.tableItem}>{input.result}</td>
+        </tr>
         )
     }
 
     return (
         <React.Fragment>
             <div style={styles.buttonContainer}>
-                <SearchInput
-                    onSubmitInput={ (e) => onSubmitInput(e) }
-                />
+                <SearchInput onSubmitInput={(e) => onSubmitInput(e)} />
             </div>
             <div style={styles.tableContainer}>
-                {inputHistory?
+                {inputHistory ?
                     <table style={styles.table}>
                         <tr style={styles.tableRow}>
                             <th style={styles.tableItem}>Input History</th>
                             <th style={styles.tableItem}>Result</th>
                         </tr>
-                        { renderTable() }
+                        {renderTable()}
                     </table>
                     : null
                 }
@@ -72,7 +68,7 @@ const styles = {
     },
     tableItem: {
         textAlign: 'center'
-    }, 
+    },
     tableRow: {
         borderBottom: '1px solid #80808024'
     }

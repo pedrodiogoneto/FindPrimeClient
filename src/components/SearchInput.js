@@ -31,7 +31,6 @@ export default function SearchButton(props) {
         else setVisualFeedback('Number needs to have 3 characters ')
     }
 
-    console.log(visualFeedback)
     return (
         <div style={styles.buttonContainer}>
             <h1 style={styles.title}>FIND PRIME!!!</h1>
