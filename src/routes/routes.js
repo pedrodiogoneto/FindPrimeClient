@@ -1,4 +1,4 @@
-import React, { lazy } from 'react'
+import { lazy } from 'react'
 
 const Homepage = lazy(() => import("../views/Homepage"));
 const Error404 = lazy(() => import("../views/Error404"))

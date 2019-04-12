@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
+import SearchInput from '../components/SearchInput'
+
 import inputAPI from '../API/inputAPI'
 
 export default function Homepage() {
-    const [inputNumber, setInputNumber] = useState('')
     const [inputHistory, setInputHistory] = useState(undefined)
 
     useEffect(() => {
@@ -14,11 +15,10 @@ export default function Homepage() {
         return getInputHistory()
     }, []); 
 
-    async function onSubmitInput() {
-        if(inputNumber.length < 3) return
-        let updatedInputList = await inputAPI.saveNewInput(inputNumber)
+    async function onSubmitInput(e) {
+        if(e.length < 3) return
+        let updatedInputList = await inputAPI.saveNewInput(e)
         setInputHistory(updatedInputList)
-        setInputNumber('')
     }
 
     function renderTable() {
@@ -30,25 +30,22 @@ export default function Homepage() {
         )
     }
 
-    console.log(inputNumber)
     return (
         <div style={styles.container}>
-            
-            <input type="number" value={inputNumber} onChange={e => setInputNumber(e.target.value)}/>
-            <button onClick={() => onSubmitInput()}>Search!</button>
+            <SearchInput 
+                onSubmitInput={ (e) => onSubmitInput(e) }
+            />
 
-            <div>
-                {inputHistory?
-                    <table>
-                        <tr>
-                            <th>Input History</th>
-                            <th>Result</th>
-                        </tr>
-                        { renderTable() }
-                    </table>
-                    : null
-                }
-            </div>
+            {inputHistory?
+                <table>
+                    <tr>
+                        <th>Input History</th>
+                        <th>Result</th>
+                    </tr>
+                    { renderTable() }
+                </table>
+                : null
+            }
         </div>
     );
 }
