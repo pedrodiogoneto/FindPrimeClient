@@ -1,4 +1,4 @@
-# KillThemAll
+# FindPrime
 
 ## Project
 
