@@ -23,9 +23,9 @@ export default function Homepage() {
 
     function renderTable() {
         if(!inputHistory) return
-        return inputHistory.map(input => <tr key={input.date}>
-                <td>{input.input}</td>
-                <td>{input.result}</td>
+        return inputHistory.map(input => <tr style={styles.tableRow} key={input.date}>
+                <td style={styles.tableItem}>{input.input}</td>
+                <td style={styles.tableItem}>{input.result}</td>
             </tr>
         )
     }
@@ -39,10 +39,10 @@ export default function Homepage() {
             </div>
             <div style={styles.tableContainer}>
                 {inputHistory?
-                    <table>
-                        <tr>
-                            <th>Input History</th>
-                            <th>Result</th>
+                    <table style={styles.table}>
+                        <tr style={styles.tableRow}>
+                            <th style={styles.tableItem}>Input History</th>
+                            <th style={styles.tableItem}>Result</th>
                         </tr>
                         { renderTable() }
                     </table>
@@ -65,7 +65,15 @@ const styles = {
         display: 'flex',
         justifyContent: 'center',
         height: '50vh',
-        overflow: 'scroll'
-
+        overflow: 'scroll',
+    },
+    table: {
+        width: '40vw'
+    },
+    tableItem: {
+        textAlign: 'center'
+    }, 
+    tableRow: {
+        borderBottom: '1px solid #80808024'
     }
 }

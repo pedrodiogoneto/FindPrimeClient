@@ -23,14 +23,31 @@ export default function SearchButton(props) {
     console.log(visualFeedback)
     return (
         <div style={styles.buttonContainer}>
-            <h1>FIND PRIME!!!</h1>
-            <input type="number" value={inputNumber} onChange={e => handleOnChangeInputNumber(e.target.value)}/>
-            <button onClick={() => handleOnSubmit()}>Search!</button>
-            <div style={{ color: 'red', height: '2em' }}>{visualFeedback}</div>
+            <h1 style={styles.title}>FIND PRIME!!!</h1>
+            <button style={styles.button} onClick={() => handleOnSubmit()}><i class="fas fa-search"></i></button>
+            <input style={styles.input} type="number" value={inputNumber} onChange={e => handleOnChangeInputNumber(e.target.value)}/>
+            <div style={{  }}>{visualFeedback}</div>
         </div>
     );
 }
 
 const styles = {
-
+    title: {
+        textAlign: 'center',
+        marginBottom: '1em'
+    },
+    button: {
+        border: '0px',
+    },
+    input: {
+        border: '1px solid #80808024',
+        borderRadius: '10px',
+        width: '40vw',
+        backgroundColor: 'transparent'
+    },
+    visualFeedback: {
+        color: 'red', 
+        height: '2em',
+        paddingLeft: '35px',
+    }
 }
