@@ -68,7 +68,7 @@ const styles = {
         overflow: 'scroll',
     },
     table: {
-        width: '40vw'
+        width: '50vw'
     },
     tableItem: {
         textAlign: 'center'
