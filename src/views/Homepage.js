@@ -31,7 +31,7 @@ export default function Homepage() {
     }
 
     return (
-        <div >
+        <React.Fragment>
             <div style={styles.buttonContainer}>
                 <SearchInput
                     onSubmitInput={ (e) => onSubmitInput(e) }
@@ -49,7 +49,7 @@ export default function Homepage() {
                     : null
                 }
             </div>
-        </div>
+        </React.Fragment>
     );
 }
 
@@ -66,6 +66,6 @@ const styles = {
         justifyContent: 'center',
         height: '50vh',
         overflow: 'scroll'
-        
+
     }
 }
