@@ -31,28 +31,41 @@ export default function Homepage() {
     }
 
     return (
-        <div style={styles.container}>
-            <SearchInput 
-                onSubmitInput={ (e) => onSubmitInput(e) }
-            />
-
-            {inputHistory?
-                <table>
-                    <tr>
-                        <th>Input History</th>
-                        <th>Result</th>
-                    </tr>
-                    { renderTable() }
-                </table>
-                : null
-            }
+        <div >
+            <div style={styles.buttonContainer}>
+                <SearchInput
+                    onSubmitInput={ (e) => onSubmitInput(e) }
+                />
+            </div>
+            <div style={styles.tableContainer}>
+                {inputHistory?
+                    <table>
+                        <tr>
+                            <th>Input History</th>
+                            <th>Result</th>
+                        </tr>
+                        { renderTable() }
+                    </table>
+                    : null
+                }
+            </div>
         </div>
     );
 }
 
 const styles = {
-    container: {
-        //display: 'flex',
-
+    buttonContainer: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'flex-end',
+        height: '40vh',
+        marginBottom: '2em'
+    },
+    tableContainer: {
+        display: 'flex',
+        justifyContent: 'center',
+        height: '50vh',
+        overflow: 'scroll'
+        
     }
 }

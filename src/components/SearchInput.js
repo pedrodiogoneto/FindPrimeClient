@@ -7,7 +7,7 @@ export default function SearchButton(props) {
 
     function handleOnChangeInputNumber(e) {
         let integerRegex =/^\d+$/;
-        console.log(integerRegex.test(e))
+
         if(integerRegex.test(e)) {
             setVisualFeedback(undefined)
             setInputNumber(e)
@@ -18,17 +18,17 @@ export default function SearchButton(props) {
 
 
     return (
-        <React.Fragment>
+        <div style={styles.buttonContainer}>
             
-                <input type="number" value={inputNumber} onChange={e => handleOnChangeInputNumber(e.target.value)}/>
-                <button onClick={() => props.onSubmitInput(inputNumber)}>Search!</button>
+            <input type="number" value={inputNumber} onChange={e => handleOnChangeInputNumber(e.target.value)}/>
+            <button onClick={() => props.onSubmitInput(inputNumber)}>Search!</button>
             {visualFeedback?
                 <div>
 
                 </div>
                 : null
             }
-        </React.Fragment>
+        </div>
     );
 }
 
