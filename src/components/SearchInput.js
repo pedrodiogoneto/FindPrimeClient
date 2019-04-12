@@ -20,10 +20,8 @@ export default function SearchButton(props) {
     return (
         <React.Fragment>
             
-            <form type="submit">
                 <input type="number" value={inputNumber} onChange={e => handleOnChangeInputNumber(e.target.value)}/>
                 <button onClick={() => props.onSubmitInput(inputNumber)}>Search!</button>
-            </form>
             {visualFeedback?
                 <div>
 
