@@ -36,11 +36,13 @@ export default function Homepage() {
             <div style={styles.tableContainer}>
                 {inputHistory ?
                     <table style={styles.table}>
-                        <tr style={styles.tableRow}>
-                            <th style={styles.tableItem}>Input History</th>
-                            <th style={styles.tableItem}>Result</th>
-                        </tr>
-                        {renderTable()}
+                        <tbody>
+                            <tr style={styles.tableRow}>
+                                <th style={styles.tableItem}>Input History</th>
+                                <th style={styles.tableItem}>Result</th>
+                            </tr>
+                            {renderTable()}
+                        </tbody>
                     </table>
                     : null
                 }

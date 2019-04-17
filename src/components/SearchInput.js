@@ -35,7 +35,7 @@ export default function SearchButton(props) {
         <div style={styles.buttonContainer}>
             <h1 style={styles.title}>FIND PRIME!!!</h1>
             <input style={styles.input} type="number" value={inputNumber} onChange={e => handleOnChangeInputNumber(e.target.value)}/>
-            <button style={styles.button} onClick={() => handleOnSubmit()}><i class="fas fa-search"></i></button>
+            <button style={styles.button} onClick={() => handleOnSubmit()}><i className="fas fa-search"></i></button>
             <div style={styles.visualFeedback}>{visualFeedback}</div>
         </div>
     );
